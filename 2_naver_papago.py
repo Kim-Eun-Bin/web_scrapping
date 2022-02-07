@@ -55,14 +55,14 @@ req_header = {"X-Naver-Client-Id": client_id, "X-Naver-Client-Secret": client_se
 
 
 def get_text_file():
-    with open('yesterday.txt', 'r', encoding='utf-8') as file:
+    with open('data/yesterday.txt', 'r', encoding='utf-8') as file:
         contents = file.read()
         result = contents.split('\n')
         return result
 
 
 def save_to_file(m_list):
-    with open('yesterday_trans.txt', 'w', encoding='utf-8') as file:
+    with open('data/yesterday_trans.txt', 'w', encoding='utf-8') as file:
         file.writelines(m_list)
 
 
