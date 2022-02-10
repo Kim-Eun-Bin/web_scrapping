@@ -7,7 +7,7 @@ def print_news_info(section):
     code = url_dict.get(section)
     if code:
         url = f'https://news.naver.com/main/main.naver?mode=LSD&mid=shm&sid1={code}'
-        print(url)
+        # print(url)
 
     req_header_dict = {
         # request header : browser information
@@ -25,8 +25,9 @@ def print_news_info(section):
         soup = BeautifulSoup(html, 'html.parser')
         # a > href attribute -> include read.naver
         a_list = soup.select("a[href*='read.naver']")
-        print(len(a_list))
         for a in a_list:
             title = a.text.strip()
             news_link = urljoin(url, a['href'])
             print(title, news_link)
+
+print_news_info('정치')
